@@ -3,7 +3,7 @@ import imghdr
 
 
 def getImageSize(fname):
-    with open(fname, 'rb') as fhandle:
+    with urlopen(fname, 'rb') as fhandle:
         head = fhandle.read(24)
         if len(head) != 24:
             raise RuntimeError("Invalid Header")

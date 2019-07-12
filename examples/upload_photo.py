@@ -4,10 +4,15 @@
 # Use text editor to edit the script and type in valid Instagram username/password
 
 from InstagramAPI import InstagramAPI
+from decouple import config
 
-InstagramAPI = InstagramAPI("login", "password")
+
+user = config('DB_USER')
+password = config('DB_PASS')
+
+InstagramAPI = InstagramAPI(user, password)
 InstagramAPI.login()  # login
 
-photo_path = '/path/to/photo.jpg'
+photo_path = '/Users/joshsolis/repos/joshdsolis/Instagram-API-python/examples/pictures/meme.jpg'
 caption = "Sample photo"
-InstagramAPI.uploadPhoto(photo_path, caption=caption)
+InstagramAPI.uploadPhoto(photo=photo_path, caption=caption)
